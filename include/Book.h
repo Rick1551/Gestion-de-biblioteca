@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>	//Para std::ranges::find_if
+#include <ranges>	//Para std::ranges::find_if
 
 class Book {
 
@@ -17,16 +18,23 @@ private:
 public:
 	//Constructor and Destructor
 	Book(const std::string& title, const std::string& author, int publicationYear, const std::string& isbn);
-	~Book();
+	//~Book();
 
-
-	const char* getTitle() const;
-	const char* getAuthor() const;
+	// Getters
+	const std::string getTitle() const;
+	const std::string getAuthor() const;
 	int getPublicationYear() const;
 	std::string getISBN() const;
 	std::string getStatus() const;
 
-	bool addBook(std::vector<Book>& library, const std::string& title, const std::string& author, int publicationYear, const std::string& isbn);
+	// Setters
+
+	// Metodo estatico para agregar libros a la biblioteca
+	static bool addBook(std::vector<Book>& library, const std::string& title,
+				const std::string& author, int publicationYear, const std::string& isbn);
+
+	//Metodo para mostrar la informacion del libro
+	void displayInfo() const;
 	void borrowBook();
 	void returnBook();
 };
