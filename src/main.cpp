@@ -26,7 +26,6 @@ int main() {
 			std::getline(std::cin, autor);
 
 			Book::addBook(library, titulo, autor, 2023, "ISBN-1234567890");
-			std::cout << "Libro agregado exitosamente.\n";
 			break;
 		}
 		case 2: {

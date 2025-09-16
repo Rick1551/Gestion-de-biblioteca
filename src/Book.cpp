@@ -4,8 +4,8 @@ Book::Book(const std::string& title, const std::string& author, int publicationY
 	: title(title), author(author), publicationYear(publicationYear), isbn(isbn), status("available") {
 }
 
-const std::string Book::getTitle() const { return std::string(); }
-const std::string Book::getAuthor() const { return std::string(); }
+const std::string Book::getTitle() const { return this->title; }
+const std::string Book::getAuthor() const { return this->author; }
 int Book::getPublicationYear() const { return publicationYear; }
 std::string Book::getISBN() const { return isbn; }
 std::string Book::getStatus() const { return status; }
@@ -31,9 +31,12 @@ bool Book::addBook(std::vector<Book>& library, const std::string& title, const s
 		std::cout << "El libro ya existe en la biblioteca.\n";
 		return false; // El libro ya existe
 	}
+	else {
+		library.emplace_back(title, author, publicationYear, isbn);	// Agregar el nuevo libro a la biblioteca
+		std::cout << "Libro agregado exitosamente.\n";
+		return true; // Libro agregado exitosamente
+	}
 
-	library.emplace_back(title, author, publicationYear, isbn);	// Agregar el nuevo libro a la biblioteca
-	return true; // Libro agregado exitosamente
 }
 
 //Getters
